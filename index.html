@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CABANA | Rooftop & Banquet</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #100c0a;
+  --gold: #d6b36a;
+  --cream: #f7f0e4;
+  --muted: #c5b7a4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+.wrap { width: min(1150px, 90%); margin: auto; }
+
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 10;
+  padding: 22px 0;
+  background: #100c0ae8;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #d6b36a30;
+}
+.nav-inner {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 20px;
+}
+.logo {
+  font: 600 30px "Cormorant Garamond", serif;
+  letter-spacing: 5px; color: var(--gold);
+}
+.logo small {
+  display: block; font: 9px "DM Sans", sans-serif;
+  letter-spacing: 3px; color: var(--cream);
+}
+.nav-links { display: flex; gap: 25px; font-size: 12px; }
+.nav-links a:hover { color: var(--gold); }
+.btn {
+  display: inline-block; padding: 14px 22px;
+  border: 1px solid var(--gold); color: var(--gold);
+  font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; transition: .3s;
+}
+.btn:hover {
+  background: var(--gold); color: var(--black);
+  transform: translateY(-3px);
+}
+.gold-btn { background: var(--gold); color: var(--black); }
+
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative;
+  background:
+    linear-gradient(90deg,#100c0af2,#100c0a88,#100c0a40),
+    linear-gradient(0deg,#100c0a,transparent 50%),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85") center/cover;
+}
+.hero-content {
+  max-width: 760px; padding-top: 100px;
+  animation: rise 1.2s ease both;
+}
+.eyebrow {
+  color: var(--gold); text-transform: uppercase;
+  letter-spacing: 4px; font-size: 11px;
+}
+h1,h2,h3 { font-family: "Cormorant Garamond", serif; font-weight: 500; }
+h1 {
+  font-size: clamp(58px, 9vw, 110px);
+  line-height: .9; margin: 28px 0;
+}
+h1 em,h2 em { color: var(--gold); }
+.hero p {
+  max-width: 500px; line-height: 1.9;
+  color: #e2d6c7; font-size: 15px;
+}
+.actions { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+
+section { padding: 100px 0; }
+.intro {
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 65px;
+}
+h2 { font-size: clamp(42px, 5vw, 68px); line-height: 1; margin: 20px 0; }
+.copy { color: var(--muted); line-height: 1.9; font-size: 14px; margin-bottom: 24px; }
+.photo-frame { position: relative; padding: 0 18px 18px 0; }
+.photo-frame img { width: 100%; height: 450px; object-fit: cover; }
+.photo-frame:after {
+  content: ""; position: absolute; right: 0; bottom: 0;
+  width: 65%; height: 65%; border-right: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold); z-index: -1;
+}
+.tag {
+  position: absolute; bottom: 40px; left: -15px;
+  background: var(--gold); color: var(--black);
+  padding: 15px 20px; font: 22px "Cormorant Garamond", serif;
+}
+.dark-section { background: #19120e; }
+.center { text-align: center; max-width: 700px; margin: 0 auto 45px; }
+.cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.card {
+  height: 400px; position: relative; overflow: hidden;
+  border: 1px solid #d6b36a45;
+}
+.card img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(.65); transition: .7s;
+}
+.card:hover img { transform: scale(1.08); filter: brightness(.8); }
+.card-text {
+  position: absolute; bottom: 25px; left: 24px; right: 20px;
+}
+.card-text span { color: var(--gold); font-size: 10px; letter-spacing: 2px; }
+.card-text h3 { font-size: 34px; margin: 10px 0; }
+.card-text p { color: #e0d4c5; font-size: 12px; line-height: 1.7; }
+
+.quote {
+  text-align: center;
+  background: linear-gradient(#100c0ae8,#100c0ae8),
+  url("https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=1600&q=80") center/cover;
+}
+.quote h2 { max-width: 850px; margin: 25px auto; }
+.quote p { color: var(--muted); letter-spacing: 2px; font-size: 11px; margin-bottom: 28px; }
+
+.contact {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.details { border-top: 1px solid #d6b36a40; margin: 25px 0; }
+.detail {
+  padding: 17px 0; border-bottom: 1px solid #d6b36a40;
+  display: grid; grid-template-columns: 120px 1fr; gap: 15px;
+  font-size: 13px;
+}
+.detail b { color: var(--gold); font-weight: 500; }
+.map-box {
+  min-height: 330px; padding: 30px; text-align: center;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle,#49341e,#211710 60%,#100c0a);
+  border: 1px solid #d6b36a50;
+}
+.map-box h3 { font-size: 38px; margin: 12px 0; }
+.map-box p { color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+
+footer { border-top: 1px solid #d6b36a40; padding: 30px 0; }
+.footer-inner {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 20px; flex-wrap: wrap;
+  color: var(--muted); font-size: 11px;
+}
+.reveal { opacity: 0; transform: translateY(25px); transition: .8s; }
+.reveal.show { opacity: 1; transform: translateY(0); }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width:760px) {
+  .nav-links { display: none; }
+  .nav-inner .btn { padding: 10px; font-size: 9px; }
+  section { padding: 70px 0; }
+  .intro,.contact { grid-template-columns: 1fr; gap: 35px; }
+  .cards { grid-template-columns: 1fr; }
+  .card { height: 360px; }
+  .photo-frame img { height: 340px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation: none!important; transition: none!important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#home">CABANA
+      <small>ROOFTOP & BANQUET</small>
+    </a>
+    <div class="nav-links">
+      <a href="#story">OUR STORY</a>
+      <a href="#experiences">EXPERIENCES</a>
+      <a href="#celebrate">CELEBRATIONS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <a class="btn" href="#contact">Plan Your Visit ↗</a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="wrap hero-content">
+    <div class="eyebrow">An elevated experience · Jhansi</div>
+    <h1>Evenings<br>worth <em>remembering.</em></h1>
+    <p>
+      Discover rooftop dining, warm hospitality and beautiful
+      celebrations in a setting made for moments that matter.
+    </p>
+    <div class="actions">
+      <a class="btn gold-btn" href="#experiences">Explore Cabana ↗</a>
+      <a class="btn" href="#contact">Plan a Celebration</a>
+    </div>
+  </div>
+</header>
+
+<section id="story">
+  <div class="wrap intro">
+    <div class="reveal">
+      <div class="eyebrow">The Cabana feeling</div>
+      <h2>A little escape<br>above the <em>everyday.</em></h2>
+      <p class="copy">
+        Some places are made for more than a meal. They're made
+        for long conversations, golden-hour views and celebrations
+        that turn into stories. Cabana brings together thoughtful
+        details and a welcoming atmosphere.
+      </p>
+      <p class="copy">
+        Whether it's a relaxed evening out or a milestone worth
+        celebrating, make room for something memorable.
+      </p>
+      <a class="btn" href="#contact">Discover Your Evening ↗</a>
+    </div>
+    <div class="photo-frame reveal">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=85" alt="Elegant restaurant dining">
+      <div class="tag">Made for moments.</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section" id="experiences">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">More than a destination</div>
+      <h2>Find your kind<br>of <em>occasion.</em></h2>
+      <p class="copy">From intimate dinners to joyful gatherings,
+      discover a setting for every reason to come together.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85" alt="Restaurant ambience">
+        <div class="card-text">
+          <span>01 / DINE</span>
+          <h3>Rooftop Dining</h3>
+          <p>Beautiful ambience and time well spent.</p>
+        </div>
+      </article>
+      <article class="card reveal">
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85" alt="Banquet venue">
+        <div class="card-text">
+          <span>02 / CELEBRATE</span>
+          <h3>Banquet Moments</h3>
+          <p>A welcoming backdrop for meaningful milestones.</p>
+        </div>
+      </article>
+      <article class="card reveal">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85" alt="Celebration table">
+        <div class="card-text">
+          <span>03 / GATHER</span>
+          <h3>Special Occasions</h3>
+          <p>Bring your people together and make the moment yours.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="celebrate">
+  <div class="wrap reveal">
+    <div class="eyebrow">Your moment, beautifully hosted</div>
+    <h2>The best memories are made around a table — and <em>shared together.</em></h2>
+    <p>GOOD FOOD · GREAT COMPANY · MEMORABLE MOMENTS</p>
+    <a class="btn gold-btn" href="#contact">Start Planning ↗</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div class="reveal">
+      <div class="eyebrow">Come find your moment</div>
+      <h2>Your next favourite evening starts <em>here.</em></h2>
+      <p class="copy">
+        We'd love to welcome you. Contact the Cabana team to enquire
+        about dining, celebrations or banquet bookings.
+      </p>
+      <div class="details">
+        <div class="detail"><b>Location</b><span>Jhansi, Uttar Pradesh</span></div>
+        <div class="detail"><b>Enquiries</b><span>Official contact details to be added</span></div>
+        <div class="detail"><b>Opening hours</b><span>Please confirm with the venue</span></div>
+      </div>
+      <p class="copy">Demo website: official contact number, address, menu and booking links can be added after approval.</p>
+    </div>
+    <div class="map-box reveal">
+      <div>
+        <div style="font-size:35px;color:var(--gold)">✦</div>
+        <h3>Meet at Cabana</h3>
+        <p>Jhansi, Uttar Pradesh<br>Exact address to be added.</p>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/Cabana+Rooftop+Banquet+Jhansi">Find on Google Maps ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a class="logo" href="#home">CABANA</a>
+    <span>ROOFTOP & BANQUET · JHANSI</span>
+    <span>© <span id="year"></span> Cabana · Demo Website</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
